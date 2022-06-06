@@ -1,0 +1,18 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "The task is to implement File Manager using Node.js APIs.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mserykh/file-manager.git"
+  },
+  "author": "mserykh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mserykh/file-manager/issues"
+  },
+  "homepage": "https://github.com/mserykh/file-manager#readme"
+}
