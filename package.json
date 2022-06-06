@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/mserykh/file-manager/issues"
   },
-  "homepage": "https://github.com/mserykh/file-manager#readme"
+  "homepage": "https://github.com/mserykh/file-manager#readme",
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
 }
