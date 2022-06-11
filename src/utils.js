@@ -7,7 +7,7 @@ const parseInput = (input) => {
     const matches = input.match(regex);
     const { command, arg1Raw, arg2Raw } = matches.groups;
 
-    const arg1Match = arg1Raw ? arg1Raw.trim().match(/("(.+)")|(.+)/): '';
+    const arg1Match = arg1Raw ? arg1Raw.trim().match(/("(.+)")|(.+)/) : '';
     const arg1 = arg1Match[2] || arg1Match[3] || '';
 
     const arg2Match = arg2Raw ? arg2Raw.trim().match(/("(.+)")|(.+)/) : '';
@@ -18,7 +18,7 @@ const parseInput = (input) => {
     return result;
   } catch (error) {
     console.log(error);
-    console.log('Operation failed');
+    console.log('Invalid input');
   }
 };
 

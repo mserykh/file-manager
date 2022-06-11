@@ -27,6 +27,7 @@ const readLine = readline.createInterface({
 readLine.on('line', (input) => {
   try {
     const [command, arg1, arg2] = parseInput(input);
+
     switch (command) {
       case '.exit':
         readLine.close();
