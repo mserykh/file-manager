@@ -7,6 +7,7 @@ import { getHomeDir, parseInput, printCurrentDir } from './src/utils.js';
 import { goUp } from './src/goUp.js';
 import { goTo } from './src/goTo.js';
 import { list } from './src/list.js';
+import { printOsInfo } from './src/printOsInfo.js';
 
 const username = getUsername();
 
@@ -48,6 +49,9 @@ readLine.on('line', (input) => {
       case 'add':
         createNewFile(arg1);
         break;
+        case 'os':
+          printOsInfo(arg1);
+          break;
       default:
         console.log('Invalid input');
     }
