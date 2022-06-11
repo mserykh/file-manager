@@ -1,20 +1,20 @@
 import readline from 'readline';
-import os from 'os';
 
 import { greetUser } from './src/greetUser.js';
 import { getUsername } from './src/getUsername.js';
 import { farewellUser } from './src/farewellUser.js';
-import { serCurrentDir } from './src/utils.js'
+import { getHomeDir, parseInput, printCurrentDir } from './src/utils.js';
+import { goUp } from './src/goUp.js';
+import { goTo } from './src/goTo.js';
 
 const username = getUsername();
-const userHomeDir = os.homedir();
 
 const init = () => {
   greetUser(username);
   try {
-    process.chdir(userHomeDir);
-    console.log(`You are currently in ${serCurrentDir()}`);
-  } catch (err) {
+    process.chdir(getHomeDir());
+    printCurrentDir();
+  } catch (error) {
     console.log('Operation failed');
   }
 };
@@ -25,12 +25,33 @@ const readLine = readline.createInterface({
 });
 
 readLine.on('line', (input) => {
-  switch (input) {
-    case '.exit':
-      readLine.close();
-      break;
-    default:
-      console.log('Invalid input');
+  try {
+    const [command, arg1, arg2] = parseInput(input);
+    switch (command) {
+      case '.exit':
+        readLine.close();
+        break;
+      case 'up':
+        goUp();
+        break;
+      case 'cd':
+        goTo(arg1);
+        break;
+      case 'ls':
+        list();
+        break;
+      case 'cat':
+        read(arg1, arg2);
+        break;
+      case 'add':
+        createNewFile(arg1);
+        break;
+      default:
+        console.log('Invalid input');
+    }
+  } catch (error) {
+    console.log(error);
+    console.log('Operation failed');
   }
 });
 
