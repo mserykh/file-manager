@@ -1,5 +1,11 @@
 import os from 'os';
 
+import { getHomeDir } from './utils.js';
+
+const getEol = () => {
+  return JSON.stringify(os.EOL);
+};
+
 const getCPUInfo = () => {
   const cpusInfo = os.cpus();
   const cpusCount = cpusInfo.length;
@@ -16,26 +22,36 @@ const getCPUInfo = () => {
   console.table(cpusTable);
 };
 
+const getSystemUsername = () => {
+  return os.userInfo().username;
+};
+
+const getCpuArchitecture = () => {
+  return os.arch();
+};
+
 export const printOsInfo = (arg) => {
   try {
     switch (arg) {
       case '--EOL':
-        console.log('Invalid input');
+        console.log(`Default system End-Of-Line: ${getEol()}`);
         break;
       case '--cpus':
         getCPUInfo();
         break;
       case '--homedir':
-        console.log('Invalid input');
+        console.log(`Home directory: ${getHomeDir()}`);
         break;
       case '--username':
-        console.log('Invalid input');
+        console.log(`System username: ${getSystemUsername()}`);
         break;
       case '--architecture':
-        console.log('Invalid input');
+        console.log(`CPU architecture: ${getCpuArchitecture()}`);
         break;
       default:
         console.log('Invalid input');
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log('Operation failed');
+  }
 };
