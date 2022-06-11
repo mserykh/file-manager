@@ -3,6 +3,7 @@ import os from 'os';
 const getCPUInfo = () => {
   const cpusInfo = os.cpus();
   const cpusCount = cpusInfo.length;
+
   const cpusTable = [];
   cpusInfo.forEach((el) => {
     cpusTable.push({
@@ -10,6 +11,7 @@ const getCPUInfo = () => {
       'Clock rate (GHz)': Number(Number.parseFloat(el.speed / 1000).toFixed(2)),
     });
   });
+
   console.log(`Overall amount of CPUs: ${cpusCount}`);
   console.table(cpusTable);
 };
