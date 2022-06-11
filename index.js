@@ -6,6 +6,7 @@ import { farewellUser } from './src/farewellUser.js';
 import { getHomeDir, parseInput, printCurrentDir } from './src/utils.js';
 import { goUp } from './src/goUp.js';
 import { goTo } from './src/goTo.js';
+import { list } from './src/list.js';
 
 const username = getUsername();
 
