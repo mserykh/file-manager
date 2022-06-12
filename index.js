@@ -14,6 +14,7 @@ import { rename } from './src/rename.js';
 import { copy } from './src/copy.js';
 import { move } from './src/move.js';
 import { remove } from './src/remove.js';
+import { calcHash } from './src/calcHash.js';
 
 const username = getUsername();
 
@@ -69,6 +70,9 @@ readLine.on('line', (input) => {
         break;
       case 'os':
         printOsInfo(arg1);
+        break;
+      case 'hash':
+        calcHash(arg1);
         break;
       default:
         console.log('Invalid input');
