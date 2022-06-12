@@ -15,6 +15,8 @@ import { copy } from './src/copy.js';
 import { move } from './src/move.js';
 import { remove } from './src/remove.js';
 import { calcHash } from './src/calcHash.js';
+import { compress } from './src/compress.js';
+import { decompress } from './src/decompress.js';
 
 const username = getUsername();
 
@@ -73,6 +75,12 @@ readLine.on('line', (input) => {
         break;
       case 'hash':
         calcHash(arg1);
+        break;
+      case 'compress':
+        compress(arg1, arg2);
+        break;
+      case 'decompress':
+        decompress(arg1, arg2);
         break;
       default:
         console.log('Invalid input');
