@@ -10,6 +10,7 @@ import { list } from './src/list.js';
 import { printOsInfo } from './src/printOsInfo.js';
 import { read } from './src/read.js';
 import { create } from './src/create.js';
+import { rename } from './src/rename.js';
 
 const username = getUsername();
 
@@ -50,6 +51,9 @@ readLine.on('line', (input) => {
         break;
       case 'add':
         create(arg1, arg2);
+        break;
+      case 'rn':
+        rename(arg1, arg2);
         break;
       case 'os':
         printOsInfo(arg1);
