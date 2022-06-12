@@ -1,12 +1,20 @@
-import path from 'path';
+import path, { isAbsolute } from 'path';
 import fs from 'fs';
 
-export const copy = (filePath, pathNewDir) => {
+export const move = (filePath, pathNewDir) => {
   try {
     const fileExtension = path.extname(filePath);
     if (!fileExtension) {
       console.log('Operation failed');
-      console.log('You can copy only files, not directories');
+      console.log('You can move only files, not directories');
+      return;
+    }
+
+    const fileDir = isAbsolute(filePath) ? path.dirname(filePath) : path.dirname(path.resolve(filePath));
+    const pathNewDirCheck = isAbsolute(pathNewDir) ? pathNewDir : path.resolve(pathNewDir);
+
+    if (pathNewDirCheck === fileDir) {
+      console.log('You tried to move file to the same directory');
       return;
     }
 
@@ -31,7 +39,13 @@ export const copy = (filePath, pathNewDir) => {
     readStream.pipe(writeStream);
 
     writeStream.on('ready', () => {
-      console.log(`${fileName} has been copied to ${pathNewDir}`);
+      console.log(`${fileName} has been moved to ${pathNewDir}`);
+      fs.unlink(filePath, (error) => {
+        if (error) {
+          console.log('Operation failed');
+          return;
+        }
+      });
     });
   } catch (error) {
     console.log('Operation failed');
