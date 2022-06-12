@@ -8,6 +8,7 @@ import { goUp } from './src/goUp.js';
 import { goTo } from './src/goTo.js';
 import { list } from './src/list.js';
 import { printOsInfo } from './src/printOsInfo.js';
+import { read } from './src/read.js';
 
 const username = getUsername();
 
@@ -44,7 +45,7 @@ readLine.on('line', (input) => {
         list();
         break;
       case 'cat':
-        read(arg1, arg2);
+        read(arg1);
         break;
       case 'add':
         createNewFile(arg1);
