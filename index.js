@@ -13,6 +13,7 @@ import { create } from './src/create.js';
 import { rename } from './src/rename.js';
 import { copy } from './src/copy.js';
 import { move } from './src/move.js';
+import { remove } from './src/remove.js';
 
 const username = getUsername();
 
@@ -62,6 +63,9 @@ readLine.on('line', (input) => {
         break;
       case 'mv':
         move(arg1, arg2);
+        break;
+      case 'rm':
+        remove(arg1, arg2);
         break;
       case 'os':
         printOsInfo(arg1);
