@@ -11,6 +11,7 @@ import { printOsInfo } from './src/printOsInfo.js';
 import { read } from './src/read.js';
 import { create } from './src/create.js';
 import { rename } from './src/rename.js';
+import { copy } from './src/copy.js';
 
 const username = getUsername();
 
@@ -54,6 +55,9 @@ readLine.on('line', (input) => {
         break;
       case 'rn':
         rename(arg1, arg2);
+        break;
+      case 'cp':
+        copy(arg1, arg2);
         break;
       case 'os':
         printOsInfo(arg1);
