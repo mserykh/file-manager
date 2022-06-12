@@ -13,7 +13,7 @@ The file manager should be able to do the following:
 - Perform hash calculations
 - Compress and decompress files
 
-##Commands
+## Commands
 
 Launch an app
 
