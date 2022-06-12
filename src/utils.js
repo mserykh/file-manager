@@ -1,6 +1,11 @@
 import os from 'os';
 
 const parseInput = (input) => {
+  if (!input) {
+    console.log('Invalid input');
+    return;
+  }
+
   try {
     const regex =
       /^(?<command>[.a-z]+)(?<arg1Raw> ((--[a-zA-Z]+)|("([^"]+)")|([^ ]+)))?(?<arg2Raw> (("([^"]+)")|([^ ]+)))?$/;
@@ -17,7 +22,6 @@ const parseInput = (input) => {
 
     return result;
   } catch (error) {
-    console.log(error);
     console.log('Invalid input');
   }
 };

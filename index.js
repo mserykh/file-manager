@@ -9,6 +9,7 @@ import { goTo } from './src/goTo.js';
 import { list } from './src/list.js';
 import { printOsInfo } from './src/printOsInfo.js';
 import { read } from './src/read.js';
+import { create } from './src/create.js';
 
 const username = getUsername();
 
@@ -48,11 +49,11 @@ readLine.on('line', (input) => {
         read(arg1);
         break;
       case 'add':
-        createNewFile(arg1);
+        create(arg1, arg2);
         break;
-        case 'os':
-          printOsInfo(arg1);
-          break;
+      case 'os':
+        printOsInfo(arg1);
+        break;
       default:
         console.log('Invalid input');
     }
